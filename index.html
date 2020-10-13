@@ -4,9 +4,17 @@
 		<meta charset="utf-8">
 		<title>3d.com</title>
 		<link rel="stylesheet" type="text/css" href="index.css">
-		<script type="text/javascript" src="index.js"></script>
+		
 	</head>
 	<body class="body">
-		<embed src="index.wrl" width="300" height="300"/>
+		<embed src="index.wrl" class="map" id="map"/>
+		
+
+		<object
+		classid="CLSID:4B6E3013-6E45-11D0-9309-0020AFE0
+		5CC8" id="Scene" width ="600" height="400" style="background: yellow;">
+			<param name="Scene" value="index.wrl"/>
+		</object>
 	</body>
+	<script type="text/javascript" src="index.js"></script>
 </html>
