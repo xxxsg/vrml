@@ -1,0 +1,21 @@
+#VRML V2.0 utf8
+
+# Transform {
+#     translation x y z
+#     rotation x y z r
+#     scale x y z
+#     scaleOrientation x y z r
+#     bboxCenter 外接箱の中心
+#     bboxSize 外接箱サイズ
+#     children [コドモ コドモ ...]
+# }
+
+Transform {
+    children [
+        DEF destTop Shape {
+            geometry Box {
+                size 6 0.1 4
+            }
+        }
+    ]
+}
