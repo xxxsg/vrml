@@ -1,0 +1,158 @@
+#VRML V2.0 utf8
+
+# Transform {
+#     translation x y z
+#     rotation x y z r
+#     scale x y z
+#     scaleOrientation x y z r
+#     bboxCenter 外接箱の中心
+#     bboxSize 外接箱サイズ
+#     children [コドモ コドモ ...]
+# }
+
+Transform {
+    children [
+        #DeskTop
+        DEF destTop Shape {
+            geometry Box {
+                size 6 0.1 4
+            }
+			appearance Appearance {
+				material Material {
+					diffuseColor .8 .51 .09
+					specularColor .92 .43 .01
+					ambientIntensity .117
+					shininess .4
+				}
+			}
+        }
+        #DeskBottom
+        Transform {
+            translation 0 -1.5 0
+            children [
+                Shape {
+                    geometry Box {
+                        size 4.5 0.05 3
+                    }
+					appearance Appearance {
+                        material Material {
+                            diffuseColor .57 .58 .58
+                            specularColor .67 .46 .44
+                            ambientIntensity .137
+                            shininess .17
+                        }
+                    }
+                }
+            ]
+        }
+        #DeskBehind
+        Transform {
+            translation 0 -0.75 -1.5
+            children [
+                Shape {
+                    geometry Box {
+                        size 4.5 1.5 0.05
+                    }
+					appearance Appearance {
+                        material Material {
+                            diffuseColor .57 .58 .58
+                            specularColor .67 .46 .44
+                            ambientIntensity .137
+                            shininess .17
+                        }
+                    }
+                }
+            ]
+        }
+        #DeskWall-left
+        DEF DeskWallLeft Transform {
+            translation -2.25 -0.75 0
+            children [
+                Shape {
+                    geometry Box {
+                        size 0.05 1.5 3
+                    }
+ 					appearance Appearance {
+                        material Material {
+                            diffuseColor .57 .58 .58
+                            specularColor .67 .46 .44
+                            ambientIntensity .137
+                            shininess .17
+                        }
+                    }                   
+                }
+            ]
+        }
+        #DeskWall-right
+        Transform {
+            translation 4.5 0 0
+            children [
+                USE DeskWallLeft
+            ]
+        }
+        #DeskLeg-left
+        DEF DeskLegLeft Transform {
+            translation -2.3 -3.5 0
+            children [
+                Shape {
+                    geometry Box {
+                        size 0.1 7 1 
+                    }
+					appearance Appearance {
+						material Material {
+							diffuseColor .57 .58 .58
+							specularColor .67 .46 .44
+							ambientIntensity .137
+							shininess .17
+						}
+					}
+                }
+                #foot
+                Transform {
+                    translation 0 -3.75 0
+                    children [
+                        Shape {
+                            geometry Box {
+                                size 0.1 0.5 6
+                            }
+                        	appearance Appearance {
+                                material Material {
+                                    diffuseColor .57 .58 .58
+                                    specularColor .67 .46 .44
+                                    ambientIntensity .137
+                                    shininess .17
+                                }
+                            }
+                        }
+                    ]
+                }       
+            ]
+        }
+        #DeskLeg-right
+        Transform {
+            translation 4.6 0 0 
+            children [
+                USE DeskLegLeft
+            ]
+        }
+        #DeskLeg-bridge
+        Transform {
+            translation 0 -7 0
+            children [
+                Shape {
+                    geometry Box {
+                        size 4.5 0.25 0.25
+                    }
+					appearance Appearance {
+                        material Material {
+                            diffuseColor .57 .58 .58
+                            specularColor .67 .46 .44
+                            ambientIntensity .137
+                            shininess .17
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
