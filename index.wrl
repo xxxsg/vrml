@@ -8,7 +8,7 @@ Background {
     rightUrl []
     topUrl []
     groundAngle []
-    groundColor []
+    groundColor [ 0 1 0 ]
     skyAngle []
     skyColor 0.1 0.8 0.9
 				  

@@ -1,0 +1,133 @@
+#VRML V2.0 utf8
+
+# 窗顶 70 cm
+# 窗户140cm
+# 窗台 100cm
+# 宽170
+
+#glassTop
+Transform {
+    translation 0 -3.5 0
+    children [
+        Shape {
+            geometry Box {
+                size 17 7 0.1
+            }
+			appearance Appearance {
+				material Material {
+					diffuseColor .36 .36 .36
+					specularColor .94 .94 .94
+					emissiveColor 0 .36 .27
+					ambientIntensity 0
+					shininess .23
+					transparency .68
+				}
+			}
+        }
+    ]
+}
+#glassBottom
+Transform {
+    translation 0 -14 0
+    children [
+        Shape {
+            geometry Box {
+                size 17 14 0.1
+            }
+			appearance Appearance {
+				material Material {
+					diffuseColor 0 .12 .14
+					specularColor 1 1 1
+					emissiveColor 0 .46 .46
+					ambientIntensity .117
+					shininess .35
+					transparency .63
+				}
+			}
+        }
+    ]
+}
+
+#horizontal beam
+DEF beamTop Transform {
+    translation 0 0 0
+    children [
+        Shape {
+            geometry Box {
+                size 17 .5 .5
+            }
+        }
+    ]
+}
+Transform {
+    translation 0 -7 0 
+    children [
+        USE beamTop
+    ]
+}
+Transform {
+    translation 0 -21 0 
+    children [
+        USE beamTop
+    ]
+}
+
+#vertical beam
+DEF beamTopVertical Transform {
+    translation -8.5 -3.5 0
+    children [
+        Shape {
+            geometry Box {
+                size .5 7 .5
+            }
+        }
+    ]
+}
+Transform {
+    translation 17 0 0 
+    children [
+        USE beamTopVertical
+    ]
+}
+
+DEF beamVertical Transform {
+    translation -8.5 -14 0
+    children [
+        Shape {
+            geometry Box {
+                size .5 14 .5
+            }
+        }
+    ]
+}
+Transform {
+    translation 17 0 0 
+    children [
+        USE beamVertical
+    ]
+}
+Transform {
+    translation 5 0 0 
+    children [
+        USE beamVertical
+    ]
+}
+Transform {
+    translation 12 0 0 
+    children [
+        USE beamVertical
+    ]
+}
+
+#Wall 
+
+Transform {
+    translation 0 -26 0
+    children [
+        Shape {
+            geometry Box {
+                size 17 10 1
+            }
+        }
+    ]
+}
