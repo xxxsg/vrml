@@ -2,7 +2,7 @@
 
 # 窗顶 70 cm
 # 窗户140cm
-# 窗台 100cm
+# 窗台 90cm
 # 宽170
 
 #glassTop
@@ -120,13 +120,12 @@ Transform {
 }
 
 #Wall 
-
 Transform {
     translation 0 -26 0
     children [
         Shape {
             geometry Box {
-                size 17 10 1
+                size 18 10 1
             }
         }
     ]

@@ -1,0 +1,71 @@
+#VRML V2.0 utf8
+
+# # 讲台2 90*60*90
+# # 凸起 10左右上各10(其中上凸起10下凸起20总30)走廊
+
+
+# Transform {
+#     translation 0 -4.5 0
+#     children [
+#         Shape {
+#             geometry Box {
+#                 size 9 9 6
+#             }
+#         }
+#         Transform {
+#             translation 0 3.5 -0.5
+#             children [
+#                 Shape {
+#                     geometry Box {
+#                         size 11 2 7
+#                     }
+# 					appearance Appearance {
+# 						material Material {
+# 							diffuseColor .75 .3 .34
+# 							specularColor .35 .35 .35
+# 							ambientIntensity .117
+# 							shininess .7
+# 						}
+# 					}
+#                 }
+#             ]
+#         }
+        
+#     ]
+# }
+
+
+# Shape {
+    
+#     geometry IndexedFaceSet {
+#         coord Coordinate {
+#             point [ 
+#                 0 0 0 
+#                 0 0 1
+#                 0 1 0
+#             ]
+#         }
+#         coordIndex [
+#             0 1 2
+#         ]
+#     }
+
+# }
+
+Shape {
+    
+    geometry IndexedFaceSet {
+        coord Coordinate {
+            point [ 
+                -5.5 0 3.5,
+                -5.5 -2 3.5,
+                -5.5 0 5.5,
+                -5.5 -2 5.5,
+            ]
+        }
+        coordIndex [
+            0,1,2,3,0,-1,
+        ]
+    }
+
+}

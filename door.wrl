@@ -1,18 +1,22 @@
 #VRML V2.0 utf8
+# 门顶 30cm
+# 们头 70cm
+# 门 200cm
+# 宽90
 
 Transform {
-    translation 0 -0.2 0
+    translation 0 -0.15 0
     children [
         Shape {
             geometry Box {
-                size 0.9 0.4 0.1
+                size 0.9 0.3 0.1
             }
 
         }
     ]
 }
 Transform {
-    translation 0 -0.75 0
+    translation 0 -0.65 0
     children [
         Shape {
             geometry Box {
@@ -31,7 +35,7 @@ Transform {
     ]
 }
 Transform {
-    translation 0 -2.1 0
+    translation 0 -2 0
     rotation 0 1 0  0.4
     center 0.45 0 0
     children [
