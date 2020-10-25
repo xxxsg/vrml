@@ -6,7 +6,7 @@ Transform {
     children [
         Shape {
             geometry Box {
-                size 10 10 0.1
+                size 7 1 1
             }
             appearance Appearance {
                 # material Material {
@@ -16,7 +16,7 @@ Transform {
                 # 	specularColor .29 .29 .29
                 # }
                 texture ImageTexture{
-                    url "image/floor.png"
+                    url "image/lecturetopside.png"
                     repeatS FALSE
                     repeatT FALSE
                 }
@@ -24,8 +24,8 @@ Transform {
                 textureTransform TextureTransform {
                     # center x y
                     # rotation r
-                    scale 1 1
-                    translation 0.5 0.5 
+                    # scale 1 1
+                    # translation 0.5 0.5 
                 }
             }
         }
