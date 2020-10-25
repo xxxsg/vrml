@@ -11,6 +11,25 @@ Transform {
             geometry Box {
                 size 9 8.9 6
             }
+            appearance Appearance {
+                texture ImageTexture{
+                    url "image/lecturemetal.png" #需要照片
+                    repeatS TRUE
+                    repeatT TRUE
+                }
+            }
+        }
+        Shape {
+            geometry Box {
+                size 7 8.8 6.01
+            }
+            appearance Appearance {
+                texture ImageTexture{
+                    url "image/lecturemetaldeep.png" #需要照片
+                    repeatS TRUE
+                    repeatT TRUE
+                }
+            }
         }
         Transform {
             translation 0 3.5 -0.5
@@ -20,12 +39,12 @@ Transform {
                         size 11 2 7
                     }
 					appearance Appearance {
-						material Material {
-							diffuseColor .75 .3 .34
-							specularColor .35 .35 .35
-							ambientIntensity .117
-							shininess .7
-						}
+						texture ImageTexture{
+                            url "image/lecturetop.png"
+                            repeatS TRUE
+                            repeatT TRUE
+                        }
+                        
 					}
                 }
             ]
@@ -56,15 +75,84 @@ Transform {
                     ]
                 }
                 coordIndex [
-                    0,1,3,2,-1,
-                    2,3,5,4,-1,
-                    4,5,7,6,-1,
-                    6,7,9,8,-1,
-                    8,9,11,10,-1,
-                    0,2,4,6,8,10,-1,
-                    11,9,7,5,3,1,-1,
-                    10,11,1,0,-1,
+                    # 0,1,3,2,-1,#left 1
+                    2,3,5,4,-1,#left 拐角
+                    # 4,5,7,6,-1,#front
+                    6,7,9,8,-1,#right 拐角
+                    # 8,9,11,10,-1,#rignt
+                    0,2,4,6,8,10,-1,#top
+                    11,9,7,5,3,1,-1,#bottom
+                    10,11,1,0,-1,#behind
                 ]
+            }
+            appearance Appearance {
+                texture ImageTexture{
+                    url "image/lecturemetal.png" #需要照片
+                    repeatS TRUE
+                    repeatT TRUE
+                }
+                
+            }
+
+        }
+        Shape {
+            geometry IndexedFaceSet {
+                coord Coordinate {
+                    point [ 
+                        -5.5 1 3.5,
+                        -5.5 -2 3.5,
+                        -4 1 4,
+                        -4 -2 4,
+                        -3.8 1 4.5,
+                        -3.8 -2 4.5,
+                        3.8 1 4.5,
+                        3.8 -2 4.5,
+                        4 1 4,
+                        4 -2 4,
+                        5.5 1 3.5,
+                        5.5 -2 3.5,
+                    ]
+                }
+                coordIndex [
+                    0,1,3,2,-1,#left 1
+                    8,9,11,10,-1,#rignt
+                ]
+            }
+            appearance Appearance {
+                texture ImageTexture{
+                    url "image/lectureside.png" 
+                }
+                textureTransform TextureTransform {
+                    scale 7 3.5
+                }
+            }
+            
+        }
+        #前面
+        Shape {
+            geometry IndexedFaceSet {
+                coord Coordinate {
+                    point [ 
+
+                        -3.8 1 4.5,
+                        -3.8 -2 4.5,
+                        3.8 1 4.5,
+                        3.8 -2 4.5,
+                    ]
+                }
+                coordIndex [
+                    0,1,3,2,-1,#front
+                ]
+            }
+            appearance Appearance {
+                texture ImageTexture{
+                    url "image/lecturefront.png" 
+                    repeatS FALSE
+                    repeatT FALSE
+                }
+                textureTransform TextureTransform {
+                    scale 1 2.5 
+                }
             }
 
         }
@@ -86,13 +174,49 @@ Transform {
                     ]
                 }
                 coordIndex [
-                    0,1,3,2,-1,
-                    6,7,5,4,-1,
+                    0,1,3,2,-1,#left 
+                    6,7,5,4,-1,#right
+                ]
+           }
+            appearance Appearance {
+                texture ImageTexture {
+                    url "image/lecturetop.png"
+                    repeatS FALSE
+                    repeatT FALSE
+                }
+                textureTransform TextureTransform {
+                    rotation 1.5708
+                }
+            }
+        }
+        Shape {
+            geometry IndexedFaceSet {
+                coord Coordinate {
+                    point [
+                        -5.5 1 3.5,
+                        -5 1 3.5,
+                        -5.5 0 -3.5,
+                        -5 0 -3.5,
+                        5.5 1 3.5,
+                        5 1 3.5,
+                        5.5 0 -3.5,
+                        5 0 -3.5,
+
+                        -5.5 0 3.5,
+                        5.5 0 3.5,
+                    ]
+                }
+                coordIndex [
                     0,2,8,-1,
                     8,2,0,-1,
                     4,6,9,-1,
                     9,6,4,-1,
                 ]
+            }
+            appearance Appearance {
+                texture ImageTexture {
+                    url "image/lecturetopside.png" #需要照片
+                }
             }
         }
     ]

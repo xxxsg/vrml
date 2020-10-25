@@ -127,6 +127,11 @@ Transform {
             geometry Box {
                 size 18 10 1
             }
+            appearance Appearance {
+                texture ImageTexture {
+                    url "image/wall.png"
+                }
+            }
         }
     ]
 }

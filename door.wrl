@@ -4,6 +4,7 @@
 # 门 200cm
 # 宽90
 
+#doorwalltop
 Transform {
     translation 0 -0.15 0
     children [
@@ -11,10 +12,17 @@ Transform {
             geometry Box {
                 size 0.9 0.3 0.1
             }
-
+            appearance Appearance {
+				texture ImageTexture{
+                    url "image/wall.png"
+                    repeatS TRUE
+                    repeatT TRUE
+                }
+			}
         }
     ]
 }
+#doorhead
 Transform {
     translation 0 -0.65 0
     children [
@@ -23,36 +31,59 @@ Transform {
                 size 0.9 0.7 0.1
             }
 			appearance Appearance {
-				material Material {
-					diffuseColor .8 .51 .09
-					specularColor .92 .43 .01
-					ambientIntensity .117
-					shininess .4
-				}
+				texture ImageTexture{
+                    url "image/doorhead.png"
+                    repeatS TRUE
+                    repeatT TRUE
+                }
 			}
 
         }
     ]
 }
+#door
 Transform {
     translation 0 -2 0
     rotation 0 1 0  0.4
     center 0.45 0 0
     children [
-        Shape {
-            geometry Box {
-                size 0.9 2 0.1
-            }
-			appearance Appearance {
-				material Material {
-					diffuseColor .33 .34 .6
-					specularColor .29 .29 .29
-					ambientIntensity .103
-					shininess .79
-				}
-			}
-
+        #inside
+        Transform {
+            translation 0 0 -0.025
+            children [
+                Shape {
+                    geometry Box {
+                        size 0.9 2 0.05
+                    }
+                    appearance Appearance {
+                        texture ImageTexture{
+                            url "image/doormirror.png"
+                            repeatS TRUE
+                            repeatT TRUE
+                        }
+                    }
+                }
+            ]
         }
+        #outside
+        Transform {
+            translation 0 0 0.025
+            children [
+                Shape {
+                    geometry Box {
+                        size 0.9 2 0.05
+                    }
+                    appearance Appearance {
+                        texture ImageTexture{
+                            url "image/door.png"
+                            repeatS TRUE
+                            repeatT TRUE
+                        }
+                    }
+                }
+            ]
+        }
+
     ]
 }
 

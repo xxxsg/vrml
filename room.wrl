@@ -47,8 +47,12 @@ Transform {
                         size 15 0.1 11
                     }
 					appearance Appearance {
-						material Material {
-						}
+                        texture ImageTexture {
+                            url "image/ceil.png"
+                        }
+                        textureTransform TextureTransform {
+                            scale 12 16
+                        }
 					}
                 }
                 DEF airfun Transform {
@@ -81,10 +85,9 @@ Transform {
                         size 0.1 5 11
                     }
 					appearance Appearance {
-						material Material {
-							ambientIntensity 0
-							shininess 0
-						}
+						texture ImageTexture {
+                            url "image/wall.png"
+                        }
 					}
                 }
             ]
@@ -129,6 +132,11 @@ Transform {
                     geometry Box {
                         size 3.3 5 0.1
                     }
+                    appearance Appearance {
+                        texture ImageTexture {
+                            url "image/wall.png"
+                        }
+                    }
                 }
             ]
         }
@@ -141,52 +149,63 @@ Transform {
     ]
 }
 
-# #door-wall
-# Transform {
-#     children [
-#         #door-left
-#         DEF doorLeft Transform {
-#             translation 1.25 5 11
-#             scale 1.6667 1.6667 1.6667
-#             children [
-#                 Inline {url "door.wrl"}
-#             ]
-#         }
-#         #door-right 
-#         Transform {
-#             translation 12.5 0 0
-#             children [
-#                 USE doorLeft
-#             ]
-#         }
-#         #doorWallSide-left
-#         DEF doorWallSide Transform {
-#             translation 0.25 2.5 11 
-#             children [
-#                 Shape {
-#                     geometry Box {
-#                         size 0.5 5 0.1
-#                     }
-#                 }
-#             ]
-#         }
-#         #doorWallSide-right
-#         Transform {
-#             translation 14.5 0 0
-#             children [
-#                 USE doorWallSide
-#             ]
-#         }
-#         #doorWallMain
-#         Transform {
-#             translation 2 0 0 
-#             scale 22 1 1
-#             children [
-#                 USE doorWallSide
-#             ]
-#         }
-#     ]
-# }
+# door-wall
+Transform {
+    children [
+        #door-left
+        DEF doorLeft Transform {
+            translation 1.25 5 11
+            scale 1.6667 1.6667 1.6667
+            children [
+                Inline {url "doormirror.wrl"}
+            ]
+        }
+        #door-right 
+        Transform {
+            translation 12.5 0 0
+            children [
+                DEF doorRignt Transform {
+                    translation 1.25 5 11
+                    scale 1.6667 1.6667 1.6667
+                    children [
+                        Inline {url "door.wrl"}
+                    ]
+                }
+            ]
+        }
+        #doorWallSide-left
+        DEF doorWallSide Transform {
+            translation 0.25 2.5 11 
+            children [
+                Shape {
+                    geometry Box {
+                        size 0.5 5 0.1
+                    }
+                    appearance Appearance {
+                        texture ImageTexture {
+                            url "image/wall.png"
+                        }
+                    }
+                }
+            ]
+        }
+        #doorWallSide-right
+        Transform {
+            translation 14.5 0 0
+            children [
+                USE doorWallSide
+            ]
+        }
+        #doorWallMain
+        Transform {
+            translation 2 0 0 
+            scale 22 1 1
+            children [
+                USE doorWallSide
+            ]
+        }
+    ]
+}
 
 
 
@@ -299,10 +318,17 @@ Transform {
                 size 2 0.3 6
             }
 			appearance Appearance {
-				material Material {
-				}
+				texture ImageTexture{
+                    url "image/lecturefloor.png"
+                    repeatS TRUE
+                    repeatT TRUE
+                }
+                textureTransform TextureTransform {
+                    scale 2 6
+                }
 			}
         }
+        # lecture
         Transform {
             scale 0.16667 0.16667 0.16667
             translation -0.5 1.65  0
@@ -323,12 +349,9 @@ Transform {
                 size 0.01 2 6
             }
 			appearance Appearance {
-				material Material {
-					diffuseColor .23 .39 .19
-					specularColor .2 .3 .29
-					ambientIntensity .06
-					shininess .39
-				}
+				texture ImageTexture {
+                    url "image/blackboad.png"
+                }
 			}
         }
     ]

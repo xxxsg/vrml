@@ -8,12 +8,9 @@ Transform {
             children [
                 Shape {
                     appearance Appearance {
-                        material Material {
-                            diffuseColor .8 .51 .09
-                            specularColor .92 .43 .01
-                            ambientIntensity .117
-                            shininess .4
-                        }
+                        texture ImageTexture {
+                            url "image/chairback.png"
+                        } 
                     }
                     geometry Box {
                         size 4.5 2 0.1                
@@ -98,12 +95,9 @@ Transform {
             children [
                 Shape {
                     appearance Appearance {
-                        material Material {
-                            diffuseColor .8 .51 .09
-                            specularColor .92 .43 .01
-                            ambientIntensity .117
-                            shininess .4
-                        }
+                        texture ImageTexture {
+                            url "image/chair.png"
+                        } 
                     }
                     geometry Box {
                         size 4 0.1 4
