@@ -217,7 +217,7 @@ Transform {
             scale 0.1667 0.1667 0.1667
             rotation 0 1 0 4.7124
             children [
-                Transform {
+                DEF chair Transform {
                     translation 0 0 5
                     rotation 0 1 0 3.1415
                     children [
@@ -225,7 +225,7 @@ Transform {
                         
                     ]
                 }
-                Transform {
+                DEF desk Transform {
                     children [
                         Inline {url "desk.wrl"}
                     ]

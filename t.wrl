@@ -1,0 +1,36 @@
+#VRML V2.0 utf8
+Background {
+groundAngle[ 0.9, 1.5, 1.57 ]
+groundColor [
+ 0 0.333 0, 0 0.4 0,
+ 0 0.5 0, 0.62 0.67 0.60
+]
+skyAngle [ 0.9, 1.5, 1.57 ]
+skyColor [
+ 0.21 0.18 0.66, 0.2 0.44 0.85,
+ 0.51 0.81 0.95, 0.77 0.8 0.82
+]
+}
+DEF BALL Transform{
+children[
+Shape{
+ appearance Appearance{
+material Material{
+diffuseColor 1 0 0
+shininess 1
+}
+}
+ geometry Sphere {radius 0.3}
+}
+]
+}
+DEF POS PositionInterpolator{
+key[0,0.25,0.5,0.75,1.0]
+keyValue[1.0 1 1, 2 2 2,4 4 4,2 2 2,1 1 1]
+}
+DEF TIMER TimeSensor{
+loop TRUE
+cycleInterval 8
+}
+ROUTE TIMER.fraction_changed TO POS.set_fraction
+ROUTE POS.value_changed TO BALL.set_scale
