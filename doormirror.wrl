@@ -42,9 +42,9 @@ Transform {
     ]
 }
 #door
-Transform {
+DEF door Transform {
     translation 0 -2 0
-    rotation 0 1 0  0.4
+    # rotation 0 1 0  0.4
     center -0.45 0 0
     children [
         #inside
@@ -83,7 +83,12 @@ Transform {
                 }
             ]
         }
+        DEF censor CylinderSensor {
+            maxAngle 0
+            minAngle -1.5
+        }
 
     ]
 }
 
+ROUTE censor.rotation_changed TO door.rotation

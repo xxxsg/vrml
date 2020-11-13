@@ -1,67 +1,36 @@
 #VRML V2.0 utf8
 
-Transform {
+DEF chair Transform {
     children [
-        #chairBack
+        DEF sensor PlaneSensor {
+            maxPosition 0 0
+            minPosition -3 0
+        }
         Transform {
-            translation 0 -1 0
+            rotation 0 1 0 1.57
             children [
-                Shape {
-                    appearance Appearance {
-                        texture ImageTexture {
-                            url "image/chairback.png"
-                        } 
-                    }
-                    geometry Box {
-                        size 4.5 2 0.1                
-                    }
-                }
-            ]
-        }
-        
-        #chairBridge-top
-        DEF chairBridgeTop Transform {
-            translation 0 -0.5 -0.15
-            rotation 0 0 1 1.5707
-            children [
-                Shape {
-                    appearance Appearance {
-						material Material {
-							diffuseColor .57 .58 .58
-							specularColor .67 .46 .44
-							ambientIntensity .137
-							shininess .17
-						}
-					}
-                    geometry Cylinder {
-                        radius 0.1
-                        height 2.5 
-                    }
-                }
-            ]
-        }
-       
-        #chairArm-left
-        DEF chairArmLeft Transform {
-            translation -1.15 -2.1 -0.15
-            children [
-                Shape {
-                    appearance Appearance {
-						material Material {
-							diffuseColor .57 .58 .58
-							specularColor .67 .46 .44
-							ambientIntensity .137
-							shininess .17
-						}
-					}
-                    geometry Cylinder {
-                        radius 0.1
-                        height 3.2 
-                    }
-                }
+                
+                #chairBack
                 Transform {
-                    translation 0 -1.6 1.5
-                    rotation 1 0 0 1.5707
+                    translation 0 -1 0
+                    children [
+                        Shape {
+                            appearance Appearance {
+                                texture ImageTexture {
+                                    url "image/chairback.png"
+                                } 
+                            }
+                            geometry Box {
+                                size 4.5 2 0.1                
+                            }
+                        }
+                    ]
+                }
+                
+                #chairBridge-top
+                DEF chairBridgeTop Transform {
+                    translation 0 -0.5 -0.15
+                    rotation 0 0 1 1.5707
                     children [
                         Shape {
                             appearance Appearance {
@@ -74,70 +43,137 @@ Transform {
                             }
                             geometry Cylinder {
                                 radius 0.1
-                                height 3 
+                                height 2.5 
                             }
                         }
                     ]
                 }
-            ]
-        }
-        
-        #chairArm-right
-        Transform {
-            translation 2.3 0 0
-            children [
-                USE chairArmLeft
-            ]
-        }
-        #chairMain
-        Transform {
-            translation 0 -3.5 2
-            children [
-                Shape {
-                    appearance Appearance {
-                        texture ImageTexture {
-                            url "image/chair.png"
-                        } 
-                    }
-                    geometry Box {
-                        size 4 0.1 4
-                    }    
+            
+                #chairArm-left
+                DEF chairArmLeft Transform {
+                    translation -1.15 -2.1 -0.15
+                    children [
+                        Shape {
+                            appearance Appearance {
+                                material Material {
+                                    diffuseColor .57 .58 .58
+                                    specularColor .67 .46 .44
+                                    ambientIntensity .137
+                                    shininess .17
+                                }
+                            }
+                            geometry Cylinder {
+                                radius 0.1
+                                height 3.2 
+                            }
+                        }
+                        Transform {
+                            translation 0 -1.6 1.5
+                            rotation 1 0 0 1.5707
+                            children [
+                                Shape {
+                                    appearance Appearance {
+                                        material Material {
+                                            diffuseColor .57 .58 .58
+                                            specularColor .67 .46 .44
+                                            ambientIntensity .137
+                                            shininess .17
+                                        }
+                                    }
+                                    geometry Cylinder {
+                                        radius 0.1
+                                        height 3 
+                                    }
+                                }
+                            ]
+                        }
+                    ]
                 }
-            ]    
-        }
-        #chairBridge-main 
-        Transform {
-            translation 0 -3.2 3
-            children [
-                USE chairBridgeTop
-            ]
-        }
-        #chairLeg-left
-        DEF chairLegLeft Transform {
-            translation -1.5 -5.25 2
-            children [
-                Shape {
-                    geometry Box {
-                        size 0.1 3.5 1 
-                    }
-					appearance Appearance {
-						material Material {
-							diffuseColor .57 .58 .58
-							specularColor .67 .46 .44
-							ambientIntensity .137
-							shininess .17
-						}
-					}
-                }
-                #foot
+                
+                #chairArm-right
                 Transform {
-                    translation 0 -2 0
+                    translation 2.3 0 0
+                    children [
+                        USE chairArmLeft
+                    ]
+                }
+                #chairMain
+                Transform {
+                    translation 0 -3.5 2
+                    children [
+                        Shape {
+                            appearance Appearance {
+                                texture ImageTexture {
+                                    url "image/chair.png"
+                                } 
+                            }
+                            geometry Box {
+                                size 4 0.1 4
+                            }    
+                        }
+                    ]    
+                }
+                #chairBridge-main 
+                Transform {
+                    translation 0 -3.2 3
+                    children [
+                        USE chairBridgeTop
+                    ]
+                }
+                #chairLeg-left
+                DEF chairLegLeft Transform {
+                    translation -1.5 -5.25 2
                     children [
                         Shape {
                             geometry Box {
-                                size 0.1 0.5 4
+                                size 0.1 3.5 1 
                             }
-                        	appearance Appearance {
+                            appearance Appearance {
+                                material Material {
+                                    diffuseColor .57 .58 .58
+                                    specularColor .67 .46 .44
+                                    ambientIntensity .137
+                                    shininess .17
+                                }
+                            }
+                        }
+                        #foot
+                        Transform {
+                            translation 0 -2 0
+                            children [
+                                Shape {
+                                    geometry Box {
+                                        size 0.1 0.5 4
+                                    }
+                                    appearance Appearance {
+                                        material Material {
+                                            diffuseColor .57 .58 .58
+                                            specularColor .67 .46 .44
+                                            ambientIntensity .137
+                                            shininess .17
+                                        }
+                                    }
+                                }
+                            ]
+                        }       
+                    ]
+                }
+                #chairLeg-left
+                Transform {
+                    translation 3 0 0
+                    children [
+                        USE chairLegLeft
+                    ]
+                }
+                #chairBridge-bottom
+                Transform {
+                    translation 0 -7 2
+                    children [
+                        Shape {
+                            geometry Box {
+                                size 3 0.25 0.25
+                            }
+                            appearance Appearance {
                                 material Material {
                                     diffuseColor .57 .58 .58
                                     specularColor .67 .46 .44
@@ -147,35 +183,11 @@ Transform {
                             }
                         }
                     ]
-                }       
-            ]
-        }
-        #chairLeg-left
-        Transform {
-            translation 3 0 0
-            children [
-                USE chairLegLeft
-            ]
-        }
-        #chairBridge-bottom
-        Transform {
-            translation 0 -7 2
-            children [
-                Shape {
-                    geometry Box {
-                        size 3 0.25 0.25
-                    }
-					appearance Appearance {
-                        material Material {
-                            diffuseColor .57 .58 .58
-                            specularColor .67 .46 .44
-                            ambientIntensity .137
-                            shininess .17
-                        }
-                    }
                 }
             ]
         }
     ]
+    
 }
 
+ROUTE sensor.translation_changed TO chair.translation

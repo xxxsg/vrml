@@ -219,7 +219,7 @@ Transform {
             children [
                 DEF chair Transform {
                     translation 0 0 5
-                    rotation 0 1 0 3.1415
+                    rotation 0 1 0 1.57
                     children [
                         Inline {url "chair.wrl"}
                         
