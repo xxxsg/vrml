@@ -7,352 +7,360 @@ Background {
 				  
 }
 
-
-#Wall
 Transform {
     children [
-        #floor
+        Viewpoint {
+            position 14 2 16
+        }
+        #Wall
         Transform {
-            translation 7.5 0 5.5
+            children [
+                #floor
+                Transform {
+                    translation 7.5 0 5.5
+                    children [
+                        Shape {
+                            geometry Box {
+                                size 15 0.1 11
+                            }
+                            appearance Appearance {
+                                # material Material {
+                                # 	ambientIntensity .103
+                                # 	shininess .79
+                                # 	diffuseColor .33 .34 .6
+                                # 	specularColor .29 .29 .29
+                                # }
+                                texture ImageTexture{
+                                    url "image/floor.png"
+                                    repeatS TRUE
+                                    repeatT TRUE
+                                }
+                                textureTransform TextureTransform {
+                                    scale 15 11
+                                }
+                            }
+                        }
+                    ]
+                }
+                #ceil
+                Transform {
+                    translation 7.5 5 5.5
+                    children [
+                        Shape {
+                            geometry Box {
+                                size 15 0.1 11
+                            }
+                            appearance Appearance {
+                                texture ImageTexture {
+                                    url "image/ceil.png"
+                                }
+                                textureTransform TextureTransform {
+                                    scale 12 16
+                                }
+                            }
+                        }
+                        DEF airfun Transform {
+                            translation 0 -0.1 0
+                            rotation 0 0 1 3.14159
+                            children [
+                                Inline {url "airfun.wrl"}
+                            ]
+                        }
+                        Transform {
+                            translation 5 0 0
+                            children[
+                                USE airfun
+                            ]
+                        }
+                        Transform {
+                            translation -5 0 0
+                            children[
+                                USE airfun
+                            ]
+                        }
+                    ]
+                }       
+                #front
+                DEF wallFront Transform {
+                    translation 0 2.5 5.5
+                    children [
+                        Shape {
+                            geometry Box {
+                                size 0.1 5 11
+                            }
+                            appearance Appearance {
+                                texture ImageTexture {
+                                    url "image/wall.png"
+                                }
+                            }
+                        }
+                    ]
+                }
+                #behind
+                Transform {
+                    translation 15 0 0 
+                    children [
+                        USE wallFront
+                    ]
+                }
+            ]
+        }
+
+        #window-wall
+        Transform {
+            children[
+                DEF window Transform {
+                    translation 1.4 5 0 
+                    scale 0.16 0.16 0.16
+                    children [
+                        Inline {url "window.wrl"}
+                    ]
+                }
+                Transform {
+                    translation 6.1 0 0 
+                    children [
+                        USE window
+                    ]
+                }
+                Transform {
+                    translation 12.2 0 0 
+                    children [
+                        USE window
+                    ]
+                }
+                #wall
+                DEF windowWall Transform {
+                    translation 4.45 2.5 0 
+                    children [
+                        Shape {
+                            geometry Box {
+                                size 3.3 5 0.1
+                            }
+                            appearance Appearance {
+                                texture ImageTexture {
+                                    url "image/wall.png"
+                                }
+                            }
+                        }
+                    ]
+                }
+                Transform {
+                    translation 6.1 0 0
+                    children [
+                        USE windowWall
+                    ]
+                }
+            ]
+        }
+
+        # door-wall
+        Transform {
+            children [
+                #door-left
+                DEF doorLeft Transform {
+                    translation 1.25 5 11
+                    scale 1.6667 1.6667 1.6667
+                    children [
+                        Inline {url "doormirror.wrl"}
+                    ]
+                }
+                #door-right 
+                Transform {
+                    translation 12.5 0 0
+                    children [
+                        DEF doorRignt Transform {
+                            translation 1.25 5 11
+                            scale 1.6667 1.6667 1.6667
+                            children [
+                                Inline {url "door.wrl"}
+                            ]
+                        }
+                    ]
+                }
+                #doorWallSide-left
+                DEF doorWallSide Transform {
+                    translation 0.25 2.5 11 
+                    children [
+                        Shape {
+                            geometry Box {
+                                size 0.5 5 0.1
+                            }
+                            appearance Appearance {
+                                texture ImageTexture {
+                                    url "image/wall.png"
+                                }
+                            }
+                        }
+                    ]
+                }
+                #doorWallSide-right
+                Transform {
+                    translation 14.5 0 0
+                    children [
+                        USE doorWallSide
+                    ]
+                }
+                #doorWallMain
+                Transform {
+                    translation 2 0 0 
+                    scale 22 1 1
+                    children [
+                        USE doorWallSide
+                    ]
+                }
+            ]
+        }
+
+
+
+        #deskAndChair 
+        Transform {
+            children [
+                DEF deskAndChair Transform {
+                    translation  1.5 1.3 1.2 
+                    scale 0.1667 0.1667 0.1667
+                    rotation 0 1 0 4.7124
+                    children [
+                        DEF chair Transform {
+                            translation 0 0 5
+                            rotation 0 1 0 1.57
+                            children [
+                                Inline {url "chair.wrl"}
+                                
+                            ]
+                        }
+                        DEF desk Transform {
+                            children [
+                                Inline {url "desk.wrl"}
+                            ]
+                        }
+                    ]
+                }
+
+                DEF DACrow Transform {
+                    children [
+                        Transform {
+                            translation 2 0 0
+                            children [
+                                USE deskAndChair
+                            ]
+                        }
+                        Transform {
+                            translation 4 0 0
+                            children [
+                                USE deskAndChair
+                            ]
+                        }
+                        Transform {
+                            translation 6 0 0
+                            children [
+                                USE deskAndChair
+                            ]
+                        }
+                        Transform {
+                            translation 8 0 0
+                            children [
+                                USE deskAndChair
+                            ]
+                        }
+                        Transform {
+                            translation 10 0 0
+                            children [
+                                USE deskAndChair
+                            ]
+                        }
+                    ]
+                }
+
+                Transform {
+                    translation 0 0 1.8
+                    children [
+                        USE deskAndChair
+                        USE DACrow
+                    ]
+                }
+
+                Transform {
+                    translation 0 0 3.6
+                    children [
+                        USE deskAndChair
+                        USE DACrow
+                    ]
+                }
+
+                Transform {
+                    translation 0 0 5.4
+                    children [
+                        USE deskAndChair
+                        USE DACrow
+                    ]
+                }
+
+                Transform {
+                    translation 0 0 7.2
+                    children [
+                        USE deskAndChair
+                        USE DACrow
+                    ]
+                }
+
+                Transform {
+                    translation 0 0 9
+                    children [
+                        USE DACrow
+                    ]
+                }
+            ]
+        }
+
+        #platform
+        Transform {
+            translation 14 0.15 5.5
             children [
                 Shape {
                     geometry Box {
-                        size 15 0.1 11
+                        size 2 0.3 6
                     }
-					appearance Appearance {
-						# material Material {
-						# 	ambientIntensity .103
-						# 	shininess .79
-						# 	diffuseColor .33 .34 .6
-						# 	specularColor .29 .29 .29
-						# }
+                    appearance Appearance {
                         texture ImageTexture{
-                            url "image/floor.png"
+                            url "image/lecturefloor.png"
                             repeatS TRUE
                             repeatT TRUE
                         }
                         textureTransform TextureTransform {
-                            scale 15 11
+                            scale 2 6
                         }
-					}
-                }
-            ]
-        }
-        #ceil
-        Transform {
-            translation 7.5 5 5.5
-            children [
-                Shape {
-                    geometry Box {
-                        size 15 0.1 11
                     }
-					appearance Appearance {
-                        texture ImageTexture {
-                            url "image/ceil.png"
-                        }
-                        textureTransform TextureTransform {
-                            scale 12 16
-                        }
-					}
                 }
-                DEF airfun Transform {
-                    translation 0 -0.1 0
-                    rotation 0 0 1 3.14159
+                # lecture
+                Transform {
+                    scale 0.16667 0.16667 0.16667
+                    translation -0.5 1.65  0
+                    rotation 0 1 0 4.71238
                     children [
-                        Inline {url "airfun.wrl"}
+                        Inline {url "lectern.wrl"}
                     ]
-                }
-                Transform {
-                    translation 5 0 0
-                    children[
-                        USE airfun
-                    ]
-                }
-                Transform {
-                    translation -5 0 0
-                    children[
-                        USE airfun
-                    ]
-                }
-            ]
-        }       
-        #front
-        DEF wallFront Transform {
-            translation 0 2.5 5.5
-            children [
-                Shape {
-                    geometry Box {
-                        size 0.1 5 11
-                    }
-					appearance Appearance {
-						texture ImageTexture {
-                            url "image/wall.png"
-                        }
-					}
                 }
             ]
         }
-        #behind
-        Transform {
-            translation 15 0 0 
-            children [
-                USE wallFront
-            ]
-        }
-    ]
-}
 
-#window-wall
-Transform {
-    children[
-        DEF window Transform {
-            translation 1.4 5 0 
-            scale 0.16 0.16 0.16
-            children [
-                Inline {url "window.wrl"}
-            ]
-        }
+        #blackbord
         Transform {
-            translation 6.1 0 0 
-            children [
-                USE window
-            ]
-        }
-        Transform {
-            translation 12.2 0 0 
-            children [
-                USE window
-            ]
-        }
-        #wall
-        DEF windowWall Transform {
-            translation 4.45 2.5 0 
+            translation 14.95 2.5 5.5
             children [
                 Shape {
                     geometry Box {
-                        size 3.3 5 0.1
+                        size 0.01 2 6
                     }
                     appearance Appearance {
                         texture ImageTexture {
-                            url "image/wall.png"
+                            url "image/blackboad.png"
                         }
                     }
                 }
             ]
         }
-        Transform {
-            translation 6.1 0 0
-            children [
-                USE windowWall
-            ]
-        }
     ]
+
 }
 
-# door-wall
-Transform {
-    children [
-        #door-left
-        DEF doorLeft Transform {
-            translation 1.25 5 11
-            scale 1.6667 1.6667 1.6667
-            children [
-                Inline {url "doormirror.wrl"}
-            ]
-        }
-        #door-right 
-        Transform {
-            translation 12.5 0 0
-            children [
-                DEF doorRignt Transform {
-                    translation 1.25 5 11
-                    scale 1.6667 1.6667 1.6667
-                    children [
-                        Inline {url "door.wrl"}
-                    ]
-                }
-            ]
-        }
-        #doorWallSide-left
-        DEF doorWallSide Transform {
-            translation 0.25 2.5 11 
-            children [
-                Shape {
-                    geometry Box {
-                        size 0.5 5 0.1
-                    }
-                    appearance Appearance {
-                        texture ImageTexture {
-                            url "image/wall.png"
-                        }
-                    }
-                }
-            ]
-        }
-        #doorWallSide-right
-        Transform {
-            translation 14.5 0 0
-            children [
-                USE doorWallSide
-            ]
-        }
-        #doorWallMain
-        Transform {
-            translation 2 0 0 
-            scale 22 1 1
-            children [
-                USE doorWallSide
-            ]
-        }
-    ]
-}
-
-
-
-#deskAndChair 
-Transform {
-    children [
-        DEF deskAndChair Transform {
-            translation  1.5 1.3 1.2 
-            scale 0.1667 0.1667 0.1667
-            rotation 0 1 0 4.7124
-            children [
-                DEF chair Transform {
-                    translation 0 0 5
-                    rotation 0 1 0 1.57
-                    children [
-                        Inline {url "chair.wrl"}
-                        
-                    ]
-                }
-                DEF desk Transform {
-                    children [
-                        Inline {url "desk.wrl"}
-                    ]
-                }
-            ]
-        }
-
-        DEF DACrow Transform {
-            children [
-                Transform {
-                    translation 2 0 0
-                    children [
-                        USE deskAndChair
-                    ]
-                }
-                Transform {
-                    translation 4 0 0
-                    children [
-                        USE deskAndChair
-                    ]
-                }
-                Transform {
-                    translation 6 0 0
-                    children [
-                        USE deskAndChair
-                    ]
-                }
-                Transform {
-                    translation 8 0 0
-                    children [
-                        USE deskAndChair
-                    ]
-                }
-                Transform {
-                    translation 10 0 0
-                    children [
-                        USE deskAndChair
-                    ]
-                }
-            ]
-        }
-
-        Transform {
-            translation 0 0 1.8
-            children [
-                USE deskAndChair
-                USE DACrow
-            ]
-        }
-
-        Transform {
-            translation 0 0 3.6
-            children [
-                USE deskAndChair
-                USE DACrow
-            ]
-        }
-
-        Transform {
-            translation 0 0 5.4
-            children [
-                USE deskAndChair
-                USE DACrow
-            ]
-        }
-
-        Transform {
-            translation 0 0 7.2
-            children [
-                USE deskAndChair
-                USE DACrow
-            ]
-        }
-
-        Transform {
-            translation 0 0 9
-            children [
-                USE DACrow
-            ]
-        }
-    ]
-}
-
-#platform
-Transform {
-    translation 14 0.15 5.5
-    children [
-        Shape {
-            geometry Box {
-                size 2 0.3 6
-            }
-			appearance Appearance {
-				texture ImageTexture{
-                    url "image/lecturefloor.png"
-                    repeatS TRUE
-                    repeatT TRUE
-                }
-                textureTransform TextureTransform {
-                    scale 2 6
-                }
-			}
-        }
-        # lecture
-        Transform {
-            scale 0.16667 0.16667 0.16667
-            translation -0.5 1.65  0
-            rotation 0 1 0 4.71238
-            children [
-                Inline {url "lectern.wrl"}
-            ]
-        }
-    ]
-}
-
-#blackbord
-Transform {
-    translation 14.95 2.5 5.5
-    children [
-        Shape {
-            geometry Box {
-                size 0.01 2 6
-            }
-			appearance Appearance {
-				texture ImageTexture {
-                    url "image/blackboad.png"
-                }
-			}
-        }
-    ]
-}
